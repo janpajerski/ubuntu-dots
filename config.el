@@ -291,6 +291,28 @@
                          (substring contents end-of-begin end)
                          (format "%s" file))))))
 
+;;****The following is to run simply-scheme in ecmas
+;;****The uncommented line sets stk-simply to run with M-x run-scheme command
+;;****The commented files run the stkdb unitlity per the description
+;;****here https://people.eecs.berkeley.edu/~bh/61a-pages/Scheme/source/src/ucb/stkdb/stkdb.el.in
+
+;; Running Scheme
+;;(add-to-list 'load-path "/usr/local/share/emacs/lisp/")
+;;(autoload 'scheme-mode "stkdb" "Debugger for STk." t)
+;;(autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
+;;(autoload 'run-scheme "cmuscheme" "Switch to interactive Scheme buffer." t)
+;;(setq auto-mode-alist (cons '("\\.scm" . scheme-mode) auto-mode-alist))
+
+(custom-set-variables '(scheme-program-name "stk-simply"))
+;;(load "stkdb")
+
+; deal with missing contents of menus
+;;(defun prepare-menus-for-scheme ()
+;;(menu-bar-mode -1)
+;;(menu-bar-mode 1))
+;;(add-hook 'scheme-mode-hook 'prepare-menus-for-scheme)
+
+;;*****************************************
 
 ;; A temporary BUG fix
 
