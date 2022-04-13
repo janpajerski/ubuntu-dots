@@ -56,7 +56,7 @@
   (setq org-capture-templates
      '(("i" "Inbox" entry (file "~/Dropbox/org/org-mode/inbox/inbox.org")
             "* TODO %?\n ")))
-   (setq org-todo-keywords
+  (setq org-todo-keywords
          '((sequence "TODO(t)" "CLOCK(k)" "RECURRING(r)" "INPROGRESS(i)" "WAITING(w)" "NEXT(n)" "TICKLER(x)" "|" "DONE(d)" "CANCELLED(c)"))
          org-todo-keyword-faces
          '(("TODO" :foreground "#f57542" :weight bold :underline t)
@@ -68,7 +68,7 @@
            ("TICKLER" :foreground "#fb9e00" :weight bold :underline t)
            ("DONE" :foreground "#809167" :weight bold :underline t)
            ("CANCELLED" :foreground "#adadad" :weight bold :underline t)))
-   (setq org-priority-lowest 69
+  (setq org-priority-lowest 69
          org-priority-faces '((?A :foreground "#ff0dd3" :weight bold)
                               (?B :foreground "#ff0d0d" :weight bold)
                               (?C :foreground "#ff9e0d" :weight bold)
@@ -97,7 +97,8 @@
                                    :timestamp nil
                                    :level nil
                                    :tcolumns nil
-                                   :formatter nil)))
+                                   :formatter nil))
+  (setq org-todo-repeat-to-state t))
 
 ;; The following sets the order/name of my priorities
 (use-package! org-fancy-priorities
@@ -297,26 +298,26 @@
 ;;****here https://people.eecs.berkeley.edu/~bh/61a-pages/Scheme/source/src/ucb/stkdb/stkdb.el.in
 
 ;; Running Scheme
-;;(add-to-list 'load-path "/usr/local/share/emacs/lisp/")
-;;(autoload 'scheme-mode "stkdb" "Debugger for STk." t)
-;;(autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
-;;(autoload 'run-scheme "cmuscheme" "Switch to interactive Scheme buffer." t)
-;;(setq auto-mode-alist (cons '("\\.scm" . scheme-mode) auto-mode-alist))
+(add-to-list 'load-path "/usr/local/lib/stk/slib/stkdb")
+(autoload 'scheme-mode "stkdb" "Debugger for STk." t)
+(autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
+(autoload 'run-scheme "cmuscheme" "Switch to interactive Scheme buffer." t)
+(setq auto-mode-alist (cons '("\\.scm" . scheme-mode) auto-mode-alist))
 
 (custom-set-variables '(scheme-program-name "stk-simply"))
-;;(load "stkdb")
+(load "stkdb")
 
 ; deal with missing contents of menus
-;;(defun prepare-menus-for-scheme ()
-;;(menu-bar-mode -1)
-;;(menu-bar-mode 1))
-;;(add-hook 'scheme-mode-hook 'prepare-menus-for-scheme)
+(defun prepare-menus-for-scheme ()
+(menu-bar-mode -1)
+(menu-bar-mode 1))
+(add-hook 'scheme-mode-hook 'prepare-menus-for-scheme)
 
 ;;*****************************************
 
 ;; A temporary BUG fix
 
-(defun native-comp-available-p nil)
+;; (defun native-comp-available-p nil)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
